@@ -135,6 +135,42 @@
             .hero-photo { order: -1; }
         }
 
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 64px;
+            align-items: center;
+            margin-bottom: 100px;
+        }
+
+        .about-photo img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border-radius: 12px;
+            display: block;
+        }
+
+        .about-text h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            letter-spacing: -0.01em;
+        }
+
+        .about-text p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 700px) {
+            .about {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+        }
+
         .tagline {
             font-family: 'Jost', sans-serif;
             font-weight: 300;
@@ -150,14 +186,6 @@
             height: 1px;
             background: var(--sage);
             margin: 48px 0;
-        }
-
-        h2 {
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 600;
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            letter-spacing: -0.01em;
         }
 
         p { margin-bottom: 16px; font-size: 1.02rem; }
@@ -264,6 +292,16 @@
             </div>
             <div class="hero-photo">
                 <img src="photos/hero.jpg" alt="Inbar Fish teaching reformer pilates">
+            </div>
+        </section>
+
+        <section class="about">
+            <div class="about-photo">
+                <img src="photos/portrait.jpg" alt="Portrait of Inbar Fish" loading="lazy">
+            </div>
+            <div class="about-text">
+                <h2>About Inbar</h2>
+                <p>Inbar Fish is a certified instructor who completed her training at the BASI Academy in El Dorado Hills, CA. Her approach emphasizes the mind-body connection and the therapeutic, restorative nature of "soft" exercises — refreshing the practitioner while gradually building physical strength through more demanding movements.</p>
             </div>
         </section>
 
