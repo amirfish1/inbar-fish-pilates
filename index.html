@@ -69,13 +69,70 @@
             border-color: var(--sage);
         }
 
-        h1 {
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+            margin-bottom: 100px;
+        }
+
+        .hero-text h1 {
             font-family: 'Cormorant Garamond', serif;
             font-weight: 400;
-            font-size: clamp(2.4rem, 6vw, 3.6rem);
+            font-size: clamp(2.6rem, 6vw, 4.2rem);
             letter-spacing: -0.02em;
-            line-height: 1.15;
-            margin-bottom: 12px;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero-sub {
+            font-size: 1.1rem;
+            color: var(--warm-black);
+            opacity: 0.75;
+            margin-bottom: 32px;
+            max-width: 420px;
+        }
+
+        .hero-photo img {
+            width: 100%;
+            aspect-ratio: 4 / 5;
+            object-fit: cover;
+            border-radius: 12px;
+            display: block;
+        }
+
+        .btn {
+            display: inline-block;
+            font-family: 'Jost', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 400;
+            letter-spacing: 0.08em;
+            padding: 14px 32px;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.1s;
+        }
+
+        .btn-primary {
+            background: var(--sage);
+            color: var(--warm-white);
+        }
+
+        .btn-primary:hover {
+            background: var(--sage-dark);
+        }
+
+        .btn-primary:active {
+            transform: translateY(1px);
+        }
+
+        @media (max-width: 700px) {
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .hero-photo { order: -1; }
         }
 
         .tagline {
@@ -198,6 +255,17 @@
             <span class="wordmark">Inbar Fish Pilates</span>
             <a href="#book" class="header-book">Book</a>
         </header>
+
+        <section class="hero">
+            <div class="hero-text">
+                <h1>Reformer Pilates in Sunnyvale</h1>
+                <p class="hero-sub">Small group classes and private sessions with Inbar Fish, BASI-certified instructor.</p>
+                <a href="https://bookyourmat.com/book/inbar-fish-pilates" class="btn btn-primary">Book a Session →</a>
+            </div>
+            <div class="hero-photo">
+                <img src="photos/hero.jpg" alt="Inbar Fish teaching reformer pilates">
+            </div>
+        </section>
 
         <div class="divider"></div>
 
