@@ -364,6 +364,25 @@
             font-size: 0.92rem;
             margin-bottom: 0;
         }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .fade-in {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
+        }
     </style>
 </head>
 <body>
@@ -373,7 +392,7 @@
             <a href="#book" class="header-book">Book</a>
         </header>
 
-        <section class="hero">
+        <section class="hero fade-in">
             <div class="hero-text">
                 <h1>Reformer Pilates in Sunnyvale</h1>
                 <p class="hero-sub">Small group classes and private sessions with Inbar Fish, BASI-certified instructor.</p>
@@ -384,7 +403,7 @@
             </div>
         </section>
 
-        <section class="about">
+        <section class="about fade-in">
             <div class="about-photo">
                 <img src="photos/portrait.jpg" alt="Portrait of Inbar Fish" loading="lazy">
             </div>
@@ -394,7 +413,7 @@
             </div>
         </section>
 
-        <section class="sessions">
+        <section class="sessions fade-in">
             <div class="section-heading">
                 <h2>Sessions</h2>
                 <p class="section-intro">Small group classes and private reformer sessions designed to build strength, improve flexibility, and restore balance — with personalized attention in every session.</p>
@@ -424,7 +443,7 @@
             </div>
         </section>
 
-        <section class="gallery">
+        <section class="gallery fade-in">
             <div class="gallery-grid">
                 <figure class="gallery-tile">
                     <img src="photos/gallery-1.jpg" alt="Studio interior" loading="lazy">
@@ -438,7 +457,7 @@
             </div>
         </section>
 
-        <section id="book" class="book-band">
+        <section id="book" class="book-band fade-in">
             <h2 class="book-heading">Ready to start?</h2>
             <p class="book-sub">Schedule your session at <strong>BookYourMat.com</strong>.</p>
             <a href="https://bookyourmat.com/book/inbar-fish-pilates" class="btn btn-primary">Book Now →</a>
@@ -457,5 +476,22 @@
             </div>
         </footer>
     </div>
+    <script>
+        (function () {
+            if (!('IntersectionObserver' in window)) {
+                document.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible'));
+                return;
+            }
+            const obs = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12 });
+            document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+        })();
+    </script>
 </body>
 </html>
