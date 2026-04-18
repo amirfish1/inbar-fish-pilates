@@ -13,8 +13,11 @@
             --warm-black: #1A1714;
             --stone: #A89F91;
             --sage: #8B9A7E;
+            --sage-dark: #6F7D64;
             --sage-light: #C2CEBC;
+            --sage-band: #E8EDE3;
             --warm-white: #FDFCFA;
+            --border: #E8E3DB;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -29,9 +32,41 @@
         }
 
         .page {
-            max-width: 720px;
+            max-width: 960px;
             margin: 0 auto;
-            padding: 80px 24px 60px;
+            padding: 40px 24px 60px;
+        }
+
+        .site-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 40px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 48px;
+        }
+
+        .wordmark {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.15rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+        }
+
+        .header-book {
+            font-family: 'Jost', sans-serif;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--sage);
+            text-decoration: none;
+            border-bottom: 1px solid var(--sage-light);
+            padding-bottom: 2px;
+            transition: border-color 0.2s;
+        }
+
+        .header-book:hover {
+            border-color: var(--sage);
         }
 
         h1 {
@@ -159,8 +194,10 @@
 </head>
 <body>
     <div class="page">
-        <h1>Inbar Fish Pilates</h1>
-        <p class="tagline">Reformer Pilates · Sunnyvale, CA</p>
+        <header class="site-header">
+            <span class="wordmark">Inbar Fish Pilates</span>
+            <a href="#book" class="header-book">Book</a>
+        </header>
 
         <div class="divider"></div>
 
